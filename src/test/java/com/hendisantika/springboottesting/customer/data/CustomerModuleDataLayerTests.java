@@ -1,8 +1,11 @@
 package com.hendisantika.springboottesting.customer.data;
 
 import com.hendisantika.springboottesting.booking.data.BookingRepository;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,5 +24,11 @@ class CustomerModuleDataLayerTests {
 
     @Autowired(required = false)
     private BookingRepository bookingRepository;
+
+    @Test
+    void onlyCustomerRepositoryIsLoaded() {
+        assertThat(customerRepository).isNotNull();
+        assertThat(bookingRepository).isNull();
+    }
 
 }
