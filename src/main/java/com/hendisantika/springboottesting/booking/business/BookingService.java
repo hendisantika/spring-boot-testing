@@ -14,10 +14,19 @@ import com.hendisantika.springboottesting.flight.data.FlightService;
  * Time: 09.15
  */
 public class BookingService {
-    private BookingRepository bookingRepository;
+    private final BookingRepository bookingRepository;
 
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
-    private FlightService flightService;
+    private final FlightService flightService;
+
+    public BookingService(
+            BookingRepository bookingRepository,
+            CustomerRepository customerRepository,
+            FlightService flightService) {
+        this.bookingRepository = bookingRepository;
+        this.customerRepository = customerRepository;
+        this.flightService = flightService;
+    }
 
 }
