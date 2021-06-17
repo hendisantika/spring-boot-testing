@@ -2,6 +2,7 @@ package com.hendisantika.springboottesting.booking.web;
 
 import com.hendisantika.springboottesting.booking.business.BookingService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,6 +11,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
+
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * Created by IntelliJ IDEA.
@@ -39,6 +45,18 @@ class BookingControllerTest {
                 .map(name -> applicationContext.getBean(name).getClass().getName())
                 .sorted()
                 .forEach(System.out::println);
+    }
+
+    @Test
+    void bookFlightReturnsHttpStatusOk() throws Exception {
+        when(bookingService.bookFlight(eq(42L), eq("Oceanic 815")))
+                .thenReturn(expectedBooking());
+
+        mockMvc.perform(
+                post("/booking")
+                        .param("customerId", "42")
+                        .param("flightNumber", "Oceanic 815"))
+                .andExpect(status().isOk());
     }
 
 }
