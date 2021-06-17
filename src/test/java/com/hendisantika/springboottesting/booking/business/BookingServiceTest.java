@@ -56,4 +56,11 @@ class BookingServiceTest {
                 .airline("Oceanic")
                 .build());
     }
+
+    private Booking booking() {
+        return Booking.builder()
+                .flightNumber("Oceanic 815")
+                .customer(customer().get())
+                .build();
+    }
 }
