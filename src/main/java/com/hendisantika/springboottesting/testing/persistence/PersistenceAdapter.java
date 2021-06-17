@@ -31,4 +31,9 @@ public class PersistenceAdapter implements SaveUserPort {
         return savedUserEntity.getId();
     }
 
+    public User loadUser(Long id) {
+        UserEntity userEntity = userRepository.findById(id).get();
+        return new User(userEntity.getId(), userEntity.getName(), userEntity.getEmail(),
+                userEntity.getRegistrationDate());
+    }
 }
