@@ -2,6 +2,7 @@ package com.hendisantika.springboottesting.booking.business;
 
 import com.hendisantika.springboottesting.booking.data.Booking;
 import com.hendisantika.springboottesting.booking.data.BookingRepository;
+import com.hendisantika.springboottesting.customer.data.Customer;
 import com.hendisantika.springboottesting.customer.data.CustomerRepository;
 import com.hendisantika.springboottesting.flight.data.Flight;
 import com.hendisantika.springboottesting.flight.data.FlightService;
@@ -63,4 +64,12 @@ class BookingServiceTest {
                 .customer(customer().get())
                 .build();
     }
+
+    private Optional<Customer> customer() {
+        return Optional.of(Customer.builder()
+                .id(42L)
+                .name("Hurley")
+                .build());
+    }
+
 }
