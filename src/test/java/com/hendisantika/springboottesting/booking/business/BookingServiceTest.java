@@ -3,10 +3,13 @@ package com.hendisantika.springboottesting.booking.business;
 import com.hendisantika.springboottesting.booking.data.Booking;
 import com.hendisantika.springboottesting.booking.data.BookingRepository;
 import com.hendisantika.springboottesting.customer.data.CustomerRepository;
+import com.hendisantika.springboottesting.flight.data.Flight;
 import com.hendisantika.springboottesting.flight.data.FlightService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.eq;
@@ -45,6 +48,12 @@ class BookingServiceTest {
 
         assertThat(booking).isNotNull();
         verify(bookingRepository).save(eq(booking));
+    }
 
+    private Optional<Flight> flight() {
+        return Optional.of(Flight.builder()
+                .flightNumber("Oceanic 815")
+                .airline("Oceanic")
+                .build());
     }
 }
