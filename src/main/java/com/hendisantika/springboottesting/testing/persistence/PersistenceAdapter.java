@@ -1,6 +1,7 @@
 package com.hendisantika.springboottesting.testing.persistence;
 
 import com.hendisantika.springboottesting.testing.domain.SaveUserPort;
+import com.hendisantika.springboottesting.testing.domain.User;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,6 +20,15 @@ public class PersistenceAdapter implements SaveUserPort {
 
     public PersistenceAdapter(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    @Override
+    public Long saveUser(User user) {
+        UserEntity userEntity = new UserEntity(
+                user.getName(),
+                user.getEmail());
+        UserEntity savedUserEntity = userRepository.save(userEntity);
+        return savedUserEntity.getId();
     }
 
 }
