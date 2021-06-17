@@ -6,8 +6,11 @@ import com.hendisantika.springboottesting.booking.web.BookingController;
 import com.hendisantika.springboottesting.customer.business.CustomerService;
 import com.hendisantika.springboottesting.customer.data.CustomerRepository;
 import com.hendisantika.springboottesting.customer.web.CustomerController;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by IntelliJ IDEA.
@@ -35,4 +38,13 @@ class CustomerModuleTest {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Test
+    void onlyCustomerModuleIsLoaded() {
+        assertThat(customerController).isNotNull();
+        assertThat(customerService).isNotNull();
+        assertThat(customerRepository).isNotNull();
+        assertThat(bookingController).isNull();
+        assertThat(bookingService).isNull();
+        assertThat(bookingRepository).isNull();
+    }
 }
