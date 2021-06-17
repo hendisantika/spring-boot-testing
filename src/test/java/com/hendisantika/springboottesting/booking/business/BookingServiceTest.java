@@ -3,6 +3,7 @@ package com.hendisantika.springboottesting.booking.business;
 import com.hendisantika.springboottesting.booking.data.BookingRepository;
 import com.hendisantika.springboottesting.customer.data.CustomerRepository;
 import com.hendisantika.springboottesting.flight.data.FlightService;
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;
 
 /**
@@ -22,4 +23,9 @@ class BookingServiceTest {
     private final BookingRepository bookingRepository = Mockito.mock(BookingRepository.class);
 
     private BookingService bookingService;
+
+    @BeforeEach
+    void setup() {
+        this.bookingService = new BookingService(bookingRepository, customerRepository, flightService);
+    }
 }
