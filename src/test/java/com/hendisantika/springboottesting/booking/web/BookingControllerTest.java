@@ -1,6 +1,8 @@
 package com.hendisantika.springboottesting.booking.web;
 
 import com.hendisantika.springboottesting.booking.business.BookingService;
+import com.hendisantika.springboottesting.booking.data.Booking;
+import com.hendisantika.springboottesting.customer.data.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +59,16 @@ class BookingControllerTest {
                         .param("customerId", "42")
                         .param("flightNumber", "Oceanic 815"))
                 .andExpect(status().isOk());
+    }
+
+    private Booking expectedBooking() {
+        return Booking.builder()
+                .customer(Customer.builder()
+                        .id(42L)
+                        .name("Naruto")
+                        .build())
+                .flightNumber("Oceanic 815")
+                .build();
     }
 
 }
