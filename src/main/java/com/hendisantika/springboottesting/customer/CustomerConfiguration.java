@@ -1,5 +1,6 @@
 package com.hendisantika.springboottesting.customer;
 
+import com.hendisantika.springboottesting.customer.business.CustomerService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
