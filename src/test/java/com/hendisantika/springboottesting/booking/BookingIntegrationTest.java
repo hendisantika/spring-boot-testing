@@ -1,4 +1,4 @@
-package com.hendisantika.springboottesting;
+package com.hendisantika.springboottesting.booking;
 
 import com.hendisantika.springboottesting.customer.data.Customer;
 import com.hendisantika.springboottesting.customer.data.CustomerRepository;

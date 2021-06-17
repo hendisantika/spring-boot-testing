@@ -1,4 +1,4 @@
-package com.hendisantika.springboottesting;
+package com.hendisantika.springboottesting.booking;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

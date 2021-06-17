@@ -1,6 +1,5 @@
-package com.hendisantika.springboottesting;
+package com.hendisantika.springboottesting.booking;
 
-import com.hendisantika.springboottesting.booking.BookingConfiguration;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
