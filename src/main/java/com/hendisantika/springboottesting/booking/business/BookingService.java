@@ -6,6 +6,7 @@ import com.hendisantika.springboottesting.customer.data.Customer;
 import com.hendisantika.springboottesting.customer.data.CustomerRepository;
 import com.hendisantika.springboottesting.flight.data.Flight;
 import com.hendisantika.springboottesting.flight.data.FlightService;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
@@ -18,6 +19,7 @@ import java.util.Optional;
  * Date: 17/06/21
  * Time: 09.15
  */
+@Service
 public class BookingService {
     private final BookingRepository bookingRepository;
 
