@@ -1,7 +1,12 @@
 package com.hendisantika.springboottesting.testing;
 
+import com.hendisantika.springboottesting.testing.domain.SaveUserPort;
+import com.hendisantika.springboottesting.testing.domain.SendMailPort;
+import com.hendisantika.springboottesting.testing.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,18 +21,18 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RegisterUseCase {
 
-//    private final SaveUserPort saveUserPort;
-//
-//    private final SendMailPort sendMailPort;
-//
-//    public Long registerUser(User user, boolean sendWelcomeMail) {
-//        user.setRegistrationDate(LocalDateTime.now());
-//
-//        if(sendWelcomeMail){
-//            sendMailPort.sendMail("Welcome!", "Thanks for registering.");
-//        }
-//
-//        return saveUserPort.saveUser(user);
-//    }
+    private final SaveUserPort saveUserPort;
+
+    private final SendMailPort sendMailPort;
+
+    public Long registerUser(User user, boolean sendWelcomeMail) {
+        user.setRegistrationDate(LocalDateTime.now());
+
+        if (sendWelcomeMail) {
+            sendMailPort.sendMail("Welcome!", "Thanks for registering.");
+        }
+
+        return saveUserPort.saveUser(user);
+    }
 
 }
