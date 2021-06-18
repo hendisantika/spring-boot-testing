@@ -2,10 +2,16 @@ package com.hendisantika.springboottesting.testing;
 
 import com.hendisantika.springboottesting.testing.domain.SaveUserPort;
 import com.hendisantika.springboottesting.testing.domain.SendMailPort;
+import com.hendisantika.springboottesting.testing.domain.User;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,6 +36,14 @@ class RegisterUseCaseTest {
     @BeforeEach
     void initUseCase() {
         registerUseCase = new RegisterUseCase(saveUserPort, sendMailPort);
+    }
+
+    @Test
+    void savedUserHasRegistrationDate() {
+        User user = new User("Uzumaki Naruto", "uzumaki_naruto@konohagakure.co.jp");
+        when(saveUserPort.saveUser(any(User.class))).thenReturn(42L);
+        Long userId = registerUseCase.registerUser(user, false);
+        assertThat(userId).isNotNull();
     }
 
 }
