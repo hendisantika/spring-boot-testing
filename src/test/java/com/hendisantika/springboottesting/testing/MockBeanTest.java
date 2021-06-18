@@ -1,6 +1,9 @@
 package com.hendisantika.springboottesting.testing;
 
+import com.hendisantika.springboottesting.testing.persistence.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,10 +17,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class MockBeanTest {
 
-//    @MockBean
-//    private UserRepository userRepository;
-//
-//    @Autowired
-//    private RegisterUseCase registerUseCase;
+    @MockBean
+    private UserRepository userRepository;
+
+    @Autowired
+    private RegisterUseCase registerUseCase;
 
 }
