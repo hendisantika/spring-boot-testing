@@ -2,6 +2,7 @@ package com.hendisantika.springboottesting.testing;
 
 import com.hendisantika.springboottesting.testing.domain.SaveUserPort;
 import com.hendisantika.springboottesting.testing.domain.SendMailPort;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -25,5 +26,10 @@ class RegisterUseCaseTest {
     private SendMailPort sendMailPort;
 
     private RegisterUseCase registerUseCase;
+
+    @BeforeEach
+    void initUseCase() {
+        registerUseCase = new RegisterUseCase(saveUserPort, sendMailPort);
+    }
 
 }
