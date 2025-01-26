@@ -27,7 +27,7 @@ dependencies {
 	implementation('org.flywaydb:flyway-core')
 	implementation('org.liquibase:liquibase-core')
 	implementation('com.github.springtestdbunit:spring-test-dbunit:1.3.0')
-	implementation('org.dbunit:dbunit:2.8.0')
+	implementation('org.dbunit:dbunit:3.0.0')
 	compileOnly('org.projectlombok:lombok')
 	runtimeOnly('com.h2database:h2')
 	testImplementation('org.junit.jupiter:junit-jupiter:5.11.4')
